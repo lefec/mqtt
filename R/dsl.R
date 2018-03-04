@@ -178,6 +178,7 @@ mqtt_run <- function(mobj, times=10000, timeout=1000, max_packets=1) {
   while(idx < n) {
     rc <- .svr$loop(timeout, max_packets)
     if (rc != 0) .svr$reconnect()
+    idx = idx + 1
   }
 
   .svr$disconnect()
